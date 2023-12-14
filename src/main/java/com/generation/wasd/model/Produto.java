@@ -1,7 +1,5 @@
 package com.generation.wasd.model;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Column;
@@ -12,6 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 
@@ -39,14 +38,13 @@ public class Produto {
 	@Column (length = 15)
 	private String console;
 	
-	@NotBlank (message = "Não é possível criar sem quantidade!")
+	@NotNull (message = "Não é possível criar sem quantidade!")
 	@Positive (message = "O número deve ser um valor positivo!")
 	private int quantidade;
 	
-	@NotBlank (message = "Não é possível criar um produto sem o preço!")
+	@NotNull (message = "Não é possível criar um produto sem o preço!")
 	@Positive (message = "O valor do preço deve ser algo positivo!")
-	@Column(name="cost", precision=8, scale=2)
-    private Float preco;
+    private float preco;
 	
 	@NotBlank (message = "Insira uma foto para o seu produto!")
 	private String foto;
@@ -95,11 +93,11 @@ public class Produto {
 		this.quantidade = quantidade;
 	}
 
-	public Float getPreco() {
+	public float getPreco() {
 		return preco;
 	}
 
-	public void setPreco(Float preco) {
+	public void setPreco(float preco) {
 		this.preco = preco;
 	}
 
