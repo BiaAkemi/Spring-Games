@@ -63,7 +63,7 @@ public class CategoriaController {
 	@PutMapping
 	public ResponseEntity<Categoria> put(@Valid @RequestBody Categoria categoria){
 		return categoriaRepository.findById(categoria.getId())
-				.map(resposta -> ResponseEntity.status(HttpStatus.CREATED)
+				.map(resposta -> ResponseEntity.status(HttpStatus.OK)
 				.body(categoriaRepository.save(categoria)))
 				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	}
