@@ -46,7 +46,7 @@ public class Produto {
 	@NotBlank (message = "Não é possível criar um produto sem o preço!")
 	@Positive (message = "O valor do preço deve ser algo positivo!")
 	@Column(name="cost", precision=8, scale=2)
-    private BigDecimal preco;
+    private Float preco;
 	
 	@NotBlank (message = "Insira uma foto para o seu produto!")
 	private String foto;
@@ -95,11 +95,11 @@ public class Produto {
 		this.quantidade = quantidade;
 	}
 
-	public BigDecimal getPreco() {
+	public Float getPreco() {
 		return preco;
 	}
 
-	public void setPreco(BigDecimal preco) {
+	public void setPreco(Float preco) {
 		this.preco = preco;
 	}
 

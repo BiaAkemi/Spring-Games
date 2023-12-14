@@ -30,7 +30,7 @@ public class Categoria {
 	@Column(length = 50)
 	private String tipo;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "tema", cascade = CascadeType.REMOVE)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "categoria", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("categoria")
 	private List <Produto> produto;
 
